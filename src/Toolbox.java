@@ -1,3 +1,4 @@
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Queue;
 
@@ -94,7 +95,30 @@ public class Toolbox {
     if (head == null) {
       throw new IllegalArgumentException("Head cannot be null.");
     }
-    return null; 
+    Map<Integer, Integer> occurMap = new HashMap<>();
+    SingleNode current = head;
+    while(current != null){
+      if (!occurMap.containsKey(current.data)) {
+        occurMap.put(current.data, 1);
+      } else {
+        occurMap.put(current.data, occurMap.get(current.data) + 1);
+      }
+      current = current.next;
+    }
+    /*
+    frequency
+    create out map
+    curent = head;
+    loop through our head
+      if( map.get( head.value) doesnt exist){
+       map.put(head.value, 1)
+      } else {
+        map.put(value, map.get(head.value) + 1)
+      }
+
+      return map
+    */
+    return occurMap; 
   }
 
   /**
