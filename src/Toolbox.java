@@ -14,7 +14,19 @@ public class Toolbox {
     if (head == null) {
       throw new IllegalArgumentException("Head cannot be null.");
     }
-    return -1; 
+    /*
+     set our head to current,
+     loop through our current going through each on
+      increment a counter per node we find
+      return increment
+    */
+    int counter = 0;
+    SingleNode current = head;
+    while(current != null){
+      counter++;
+      current = current.next;
+    }
+    return counter; 
   }
 
   /**
