@@ -131,9 +131,31 @@ public class Toolbox {
     if (node == null) {
       throw new IllegalArgumentException("Node cannot be null.");
     }
-    
-  }
+    /*
+    Store location toRemove = node
+    Store its previous = node.prev
+    Store its next = node.next
 
+    if(node.next && node.prev are not null)
+    node.next = nex
+    node.prev = node
+    */
+    DoubleNode toRemove = node;
+    DoubleNode toRemovePrev = node.prev;
+    DoubleNode toRemoveNext = node.next;
+
+    if (toRemove.next != null && toRemove.prev != null) {
+      toRemovePrev.next = toRemoveNext;
+      toRemoveNext.prev = toRemovePrev;
+    }
+    else if (toRemove.prev == null && toRemove.next != null) {
+      toRemove.next.prev = null;
+    }
+    else if (toRemove.next == null && toRemove.prev != null) {
+      toRemove.prev.next = null;
+    } 
+   
+  }
   /**
    * Finds the nth element in a singly linked list.
    *
