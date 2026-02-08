@@ -40,7 +40,17 @@ public class Toolbox {
     if (head == null) {
       throw new IllegalArgumentException("Head cannot be null.");
     }
-    return null; 
+    /*
+     loop through()
+        set current to current .next
+      
+        return current
+    */
+   SingleNode current = head;
+   while (current.next != null) {
+    current = current.next;
+   }
+    return current; 
   }
 
   /**
