@@ -1,4 +1,6 @@
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Queue;
 
@@ -168,7 +170,18 @@ public class Toolbox {
     if (head == null || n < 0) {
       throw new IllegalArgumentException("Head cannot be null and n cannot be negative.");
     }
-    return null; 
+    List<SingleNode> list = new ArrayList<>();
+    SingleNode current = head;
+
+    while(current != null){
+      list.add(current);
+      current = current.next;
+    }
+    if(n < list.size()){
+      return list.get(n);
+    } 
+    return null;
+    
   }
 
   /**
