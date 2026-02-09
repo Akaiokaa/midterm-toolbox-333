@@ -3,6 +3,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Queue;
+import java.util.Stack;
 
 public class Toolbox {
 
@@ -309,7 +310,19 @@ public class Toolbox {
     if (input == null) {
       throw new IllegalArgumentException("Input string cannot be null.");
     }
-    return false;
+    Stack<Character> stack = new Stack<>();
+    for(int i = 0; i < input.length(); i++){
+      char currentChar = input.charAt(i);
+
+      if(input.charAt(i) == '('){
+        stack.add(currentChar);
+      } else if(currentChar == ')') {
+        if (stack.isEmpty()) return false; 
+        stack.pop();
+      }
+    }
+
+    return stack.isEmpty();
   }
 
   /**
