@@ -350,6 +350,18 @@ public class Toolbox {
     if (scores == null || scores.isEmpty()) {
       throw new IllegalArgumentException("Scares cannot be null or empty");
     }
-    return null;
+    int highscore = 0;
+    String winner = "";
+    for(Map.Entry<String, Integer> val: scores.entrySet()){
+      if (val.getValue() > highscore) {
+        highscore = val.getValue();
+        winner = val.getKey();
+      }
+      if(highscore == val.getValue() && val.getKey().compareTo(winner) < 0 ){
+        winner = val.getKey();
+      }
+      
+    }
+    return winner;
   }
 }
